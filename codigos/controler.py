@@ -5,6 +5,12 @@ import sys
 import model as db_nt
 
 
+
+
+
+
+
+
 def ingresar_noticia(a,b,c,d,e,f,g):
   if (a=="" and b =="" and c=="" and d=="" and e=="" and e=="" and f=="" and g==""):
     print "No ingresado a la bbs"

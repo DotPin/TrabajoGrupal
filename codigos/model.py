@@ -32,16 +32,23 @@ def obt_tb_ctgrs():
 def filtro(texto):
   con = conectar()
   c = concursor()
-  a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
-  query = "select id_noticia, fecha, autor, resumen from noticias where texto like '?'"
-  respuesta = c.execute(query, (a))
+  #a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
+  query = "select id_noticia, fecha, autor, resumen from noticias where texto like %?%"
+  respuesta = c.execute(query, (texto))
   con.close()
   return respuesta.fetchall()
 
+#Muestra las noticias con sus etiquetas ordenadamente según lo solicitado por pauta
+def mostrar_ntcs():
+  con = conectar()
+  c = con.cursor()
+  rsp = c.execute("select b.fecha as 'Fecha', a.nombre as 'Categoria', b.titulo as 'Titulo', b.resumen as 'Resumen', b.publicada as 'Publicada', b.autor as 'Autor' from categoria a left join noticias b where id_categoria = fk_id_categoria;")
+  con.close()
+  return rsp.fetchall()
 
 
 
-#**************************Modificación y creación de datos
+#**************************Modificación, eliminación y creación de datos
 
 #para crear la noticia la fk_id_categoria debe ser igual que la id_categoria de la tabla categoría
 def crea_ntcs(titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria):
@@ -52,26 +59,37 @@ def crea_ntcs(titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria):
     con.commit()
 
 
-def mostrar_ntcs():
+#para editar las noticas las categorías deben existir para la noticia, y validar la fk_id_categoria con id_noticia
+def edita_ntcs(titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria):
   con = conectar()
   c = con.cursor()
-  rsp = c.execute("select b.fecha as 'Fecha', a.nombre as 'Categoria', b.titulo as 'Titulo', b.resumen as 'Resumen', b.publicada as 'Publicada', b.autor as 'Autor' from categoria a left join noticias b where id_categoria = fk_id_categoria;")
-  con.close()
-  return rsp.fetchall()
+  query = "update noticias set titulo = ?, fecha= ?, resumen= ?, texto= ?, publicada= ?, autor= ?, fk_id_categoria= ?, where id_noticia = ?"
+  c.execute(query, (titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria))
+  con.commit()
 
-def edita_ntcs( id_mdf ):
+
+#confirma si la eliminación fue exitosa o no, dependiendo si la noticia existe o no con excepcion
+def elimina_ntcs(id_ntcs):
   vdd = True
   con = conectar()
   c = con.cursor()
-  query = "update"
-  try 
+  query = "delete from noticias where id_noticia = ?"
+  try
+    c.execute(query, (id_ntcs))
+    con.commit()
+  except sqlite3.Error as e:
+    vdd = False
+    print "Error:", e.args[0]
+  con.close()
+  return vdd
 
-INSERT INTO noticias (titulo, fecha, resumen, texto, publicada, autor, fk_id_categoria) VALUES ("lol", 1988-05-25, "paf", "SI", "FUU", "CACA", 3); 
 
-select * from noticias;
+#***********************querys de prueba
 
-select * from categoria;
+#INSERT INTO noticias (titulo, fecha, resumen, texto, publicada, autor, fk_id_categoria) VALUES ("lol", 1988-05-25, "paf", "SI", "FUU", "CACA", 3); 
 
+#update noticias set titulo= "narf", fecha='1988-05-25', resumen="cafi", texto="tula", publicada="NO", autor="PATA", fk_id_categoria="3" where id_noticia = 23;
 
+#select * from noticias;
   
     
