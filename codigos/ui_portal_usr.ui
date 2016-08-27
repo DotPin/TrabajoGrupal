@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ui_portal_usr</class>
- <widget class="QWidget" name="ui_portal_usr">
+ <class>mostrador</class>
+ <widget class="QWidget" name="mostrador">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -129,6 +129,19 @@
      <width>621</width>
      <height>251</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>130</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Volver</string>
    </property>
   </widget>
  </widget>

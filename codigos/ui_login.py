@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_login.ui'
 #
-# Created: Sun Jul 31 01:13:14 2016
+# Created: Sat Aug 27 03:22:08 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,15 +39,18 @@ class Ui_Noticias(object):
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtGui.QLineEdit(self.centralWidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(90, 180, 181, 23))
-        self.lineEdit_2.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText|QtCore.Qt.ImhSensitiveData)
+        #self.lineEdit_2.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText|QtCore.Qt.ImhSensitiveData)
         self.lineEdit_2.setEchoMode(QtGui.QLineEdit.Password)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_2 = QtGui.QLabel(self.centralWidget)
         self.label_2.setGeometry(QtCore.QRect(50, 110, 281, 20))
         self.label_2.setObjectName("label_2")
         self.pushButton = QtGui.QPushButton(self.centralWidget)
-        self.pushButton.setGeometry(QtCore.QRect(110, 220, 141, 31))
+        self.pushButton.setGeometry(QtCore.QRect(70, 220, 101, 31))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtGui.QPushButton(self.centralWidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(190, 220, 101, 31))
+        self.pushButton_2.setObjectName("pushButton_2")
         Noticias.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(Noticias)
@@ -60,4 +63,5 @@ class Ui_Noticias(object):
         self.lineEdit_2.setText(QtGui.QApplication.translate("Noticias", "Contraseña", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("Noticias", "Para ingresar completa los campos de login", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton.setText(QtGui.QApplication.translate("Noticias", "Aceptar", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_2.setText(QtGui.QApplication.translate("Noticias", "Salir", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ui_portal_adm</class>
- <widget class="QMainWindow" name="ui_portal_adm">
+ <class>portal_adm</class>
+ <widget class="QMainWindow" name="portal_adm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -56,7 +56,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;Escoja la categoría&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;que desea ejecutar:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="mstr">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -74,7 +74,7 @@
      <string>Mostrar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="a_ctgr">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -87,7 +87,7 @@
      <string>Categoria</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="a_ntc">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -100,7 +100,7 @@
      <string>Noticia</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="ed_ctgr">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -113,7 +113,7 @@
      <string>Categoria</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="ed_ntc">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -126,7 +126,7 @@
      <string>Noticia</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="el_ctgr">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -139,7 +139,7 @@
      <string>Categoria</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="el_ntc">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -240,7 +240,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="salir">
     <property name="geometry">
      <rect>
       <x>110</x>
