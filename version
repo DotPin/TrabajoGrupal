@@ -3,3 +3,6 @@ Version del Programa realizando:	1.1
 *creando portal usuario
 *cambiando permisos a los archivos para uso multiusuario colaborador
 *empezando con los codigos en controler
+*enlazamos las 3 ventanas virtuales
+*hicimos correr el mostrador con grilla
+*arreglamos el model por problemas con "return" para consultas
