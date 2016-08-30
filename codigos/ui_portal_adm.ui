@@ -240,7 +240,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="salir">
+   <widget class="QPushButton" name="volver">
     <property name="geometry">
      <rect>
       <x>110</x>

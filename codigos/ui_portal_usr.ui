@@ -35,7 +35,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="filtro">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -74,16 +74,16 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QCheckBox" name="checkBox_2">
+      <widget class="QRadioButton" name="pbkda">
        <property name="text">
-        <string>Publicadas</string>
+        <string>Publicada</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QRadioButton" name="n_pbkda">
        <property name="text">
-        <string>No Publicadas</string>
+        <string>No Publicada</string>
        </property>
       </widget>
      </item>
@@ -121,17 +121,7 @@
     <number>0</number>
    </property>
   </widget>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>621</width>
-     <height>251</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="volver">
    <property name="geometry">
     <rect>
      <x>530</x>
@@ -142,6 +132,16 @@
    </property>
    <property name="text">
     <string>Volver</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="tabla">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>641</width>
+     <height>261</height>
+    </rect>
    </property>
   </widget>
  </widget>

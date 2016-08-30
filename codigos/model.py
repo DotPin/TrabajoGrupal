@@ -17,17 +17,18 @@ def obt_tb_ntcs():
   con = conectar()
   c = con.cursor()
   rsp = c.execute("select * from noticias;")
+  a = rsp.fetchall()
   con.close()
-  return rsp.fetchall()
+  return a
 
 #obtengo todos los datos de categorias
 def obt_tb_ctgrs():
-  def obt_tb_noticias():
   con = conectar()
   c = con.cursor()
   rsp = c.execute("select * from categoria;")
+  b = rsp.fetchall()
   con.close()
-  return rsp.fetchall()
+  return b
 
 def filtro(texto):
   con = conectar()
@@ -74,7 +75,7 @@ def elimina_ntcs(id_ntcs):
   con = conectar()
   c = con.cursor()
   query = "delete from noticias where id_noticia = ?"
-  try
+  try:
     c.execute(query, (id_ntcs))
     con.commit()
   except sqlite3.Error as e:

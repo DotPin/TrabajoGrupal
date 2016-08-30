@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_portal_adm.ui'
 #
-# Created: Sat Aug 27 04:48:23 2016
+# Created: Mon Aug 29 16:09:18 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -75,15 +75,15 @@ class Ui_portal_adm(object):
         self.label_5.setFrameShadow(QtGui.QFrame.Sunken)
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
-        self.salir = QtGui.QPushButton(self.centralWidget)
-        self.salir.setGeometry(QtCore.QRect(110, 212, 171, 41))
+        self.volver = QtGui.QPushButton(self.centralWidget)
+        self.volver.setGeometry(QtCore.QRect(110, 212, 171, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(75)
         font.setStrikeOut(False)
         font.setBold(True)
-        self.salir.setFont(font)
-        self.salir.setObjectName("salir")
+        self.volver.setFont(font)
+        self.volver.setObjectName("volver")
         portal_adm.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(portal_adm)
@@ -103,5 +103,5 @@ class Ui_portal_adm(object):
         self.label_3.setText(QtGui.QApplication.translate("portal_adm", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Agregar</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("portal_adm", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Editar</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("portal_adm", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Eliminar</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.salir.setText(QtGui.QApplication.translate("portal_adm", "Salir", None, QtGui.QApplication.UnicodeUTF8))
+        self.volver.setText(QtGui.QApplication.translate("portal_adm", "Salir", None, QtGui.QApplication.UnicodeUTF8))
 

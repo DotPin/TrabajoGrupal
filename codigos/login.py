@@ -22,17 +22,20 @@ class Main(QtGui.QMainWindow):
 
   def validar(self):
     print "pasa"
+    self.errorMessageDialog = QtGui.QMessageBox(self)
     from MPortales import Vtn1
     usr = self.ui1.lineEdit.text()
     pss = self.ui1.lineEdit_2.text()
+    usr = "Admin"
+    pss = "admin"
     print usr
     print pss
     if (usr == "Admin" and pss == "admin"):
       self.close()
-      self.ui2 = Vtn1()
-      self.ui2.iniciar().show()
+      self.prt = Vtn1()
+      self.prt.iniciar().show()
     else:
-      self.errorMessageDialog.setText("Usuario que pasa %s , %s"%(usr,pss))
+      self.errorMessageDialog.setText("Datos no válidos: %s , %s"%(usr,pss))
       self.errorMessageDialog.exec_()
 
 def run():
