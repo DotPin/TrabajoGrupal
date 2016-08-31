@@ -30,11 +30,21 @@ def obt_tb_ctgrs():
   con.close()
   return b
 
-def filtro(texto):
+#def filtro(texto):
+  #con = conectar()
+  #c = concursor()
+  ##a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
+  #query = ""select id_noticia, fecha, autor, resumen from noticias where texto like "%?%"""
+  ##respuesta = c.execute(query, (texto))
+  #b = respuesta.fetchall()
+  #con.close()
+  #return b
+
+def refresco(texto):
   con = conectar()
   c = concursor()
   #a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
-  query = "select id_noticia, fecha, autor, resumen from noticias where texto like %?%"
+  query = """select * from noticias where texto like "%?%"""
   respuesta = c.execute(query, (texto))
   b = respuesta.fetchall()
   con.close()
@@ -93,5 +103,6 @@ def elimina_ntcs(id_ntcs):
 #update noticias set titulo= "narf", fecha='1988-05-25', resumen="cafi", texto="tula", publicada="NO", autor="PATA", fk_id_categoria="3" where id_noticia = 23;
 
 #select * from noticias;
-  
-    
+ 
+#consulta con like
+#select * from noticias where texto like "%ta%";

@@ -18,7 +18,7 @@ class Vtn2 (QtGui.QMainWindow):
       
   def botones(self):
     self.msrt.volver.clicked.connect(self.atras)
-    self.filtro.textChanged.connect(self.cambio)
+    self.msrt.filtro.textChanged.connect(self.refresco_tbl)
     
   def atras(self):
     self.close()
@@ -49,19 +49,24 @@ class Vtn2 (QtGui.QMainWindow):
       a = ""
     self.msrt.tabla.setModel(self.model)
     
-  def rfk_ltr(self):
-     b = self.filtro.text()
-     h = db_model.filtro(b)
-  
-  def cambio(self):
-    x = 1 #entregar variable de retorno de load data(cn argumento)
-    self.refresco(x)
-  
-  def refresco(self,text):
-    b = self.filtro.setText(text)
-    
-    
-    
-    
-    
+  def refresco_tbl():
+    b = self.filtro.text() #Obtengo la letra desde la bandeja de texto
+    fltr = db_model.refresco(b) #llamo tabla noticias filtrada  de la consulta a la bss y la guardo en fltr
+    ctg = db_model.obt_tb_ctgrs()#llamo la tabla de categorias completa
+    self.model = QtGui.QStandardItemModel(self.msrt.tabla)#creo objeto modelo de tabla
+    for q in fltr:# 		Comparo...
+      for b in ctg:
+	if q["id_categoria"] == b["fk_id_categoria"]:# if tabla noticias igual tabla categoria:
+	  a = (e["fecha"]) + "\n"
+	  a = a + (e["titulo"]) + "\n"
+	  a = a + (e["resumen"]) + "\n"
+	  a = a + (e["texto"]) + "\n"
+	  a = a + (e["publicada"]) + "\n"
+	  a = a + (e["autor"]) + "\n"
+	  a = a + (b["nombre"]) + "\n"
+	  self.item = QtGui.QStandardItem(a)# crea la cadena de texto
+	  self.model.appendRow(self.item)
+	  a = ""
+    self.msrt.tabla.setModel(self.model)		#Reescribe la tabla con el dato que reciba
+    return b
     
