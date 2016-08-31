@@ -36,8 +36,9 @@ def filtro(texto):
   #a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
   query = "select id_noticia, fecha, autor, resumen from noticias where texto like %?%"
   respuesta = c.execute(query, (texto))
+  b = respuesta.fetchall()
   con.close()
-  return respuesta.fetchall()
+  return b
 
 #Muestra las noticias con sus etiquetas ordenadamente según lo solicitado por pauta
 def mostrar_ntcs():

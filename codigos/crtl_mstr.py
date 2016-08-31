@@ -18,6 +18,7 @@ class Vtn2 (QtGui.QMainWindow):
       
   def botones(self):
     self.msrt.volver.clicked.connect(self.atras)
+    self.filtro.textChanged.connect(self.cambio)
     
   def atras(self):
     self.close()
@@ -47,4 +48,17 @@ class Vtn2 (QtGui.QMainWindow):
       self.model.appendRow(self.item)
       a = ""
     self.msrt.tabla.setModel(self.model)
+    
+  def rfk_ltr(self):
+     b = self.filtro.text()
+     h = db_model.filtro(b)
+  
+  def cambio(self):
+    x = 1 #entregar variable de retorno de load data(cn argumento)
+    self.refresco(x)
+  
+  def refresco(self,text):
+    b = self.filtro.setText(text)
+    
+    
     
