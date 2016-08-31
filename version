@@ -6,3 +6,5 @@ Version del Programa realizando:	1.1
 *enlazamos las 3 ventanas virtuales
 *hicimos correr el mostrador con grilla
 *arreglamos el model por problemas con "return" para consultas
+*empezaremos a integrar el refresco de la bss en la grilla
+*-> Pasamos a la v1.2
