@@ -18,7 +18,7 @@ class Vtn2 (QtGui.QMainWindow):
       
   def botones(self):
     self.msrt.volver.clicked.connect(self.atras)
-    self.msrt.filtro.textChanged.connect(self.refresco_tbl)
+    self.msrt.filtro.textChanged.connect(self.cambio_tbl)
     
   def atras(self):
     self.close()
@@ -49,24 +49,23 @@ class Vtn2 (QtGui.QMainWindow):
       a = ""
     self.msrt.tabla.setModel(self.model)
     
-  def refresco_tbl():
-    b = self.filtro.text() #Obtengo la letra desde la bandeja de texto
-    fltr = db_model.refresco(b) #llamo tabla noticias filtrada  de la consulta a la bss y la guardo en fltr
+  def cambio_tbl(self, text):
+    fltr = db_model.refresco(text) #llamo tabla noticias filtrada  de la consulta a la bss y la guardo en fltr
     ctg = db_model.obt_tb_ctgrs()#llamo la tabla de categorias completa
     self.model = QtGui.QStandardItemModel(self.msrt.tabla)#creo objeto modelo de tabla
     for q in fltr:# 		Comparo...
       for b in ctg:
-	if q["id_categoria"] == b["fk_id_categoria"]:# if tabla noticias igual tabla categoria:
-	  a = (e["fecha"]) + "\n"
-	  a = a + (e["titulo"]) + "\n"
-	  a = a + (e["resumen"]) + "\n"
-	  a = a + (e["texto"]) + "\n"
-	  a = a + (e["publicada"]) + "\n"
-	  a = a + (e["autor"]) + "\n"
+	if b["id_categoria"] == q["fk_id_categoria"]:# if tabla noticias igual tabla categoria:
+	  a = (q["fecha"]) + "\n"
+	  a = a + (q["titulo"]) + "\n"
+	  a = a + (q["resumen"]) + "\n"
+	  a = a + (q["texto"]) + "\n"
+	  a = a + (q["publicada"]) + "\n"
+	  a = a + (q["autor"]) + "\n"
 	  a = a + (b["nombre"]) + "\n"
 	  self.item = QtGui.QStandardItem(a)# crea la cadena de texto
 	  self.model.appendRow(self.item)
 	  a = ""
     self.msrt.tabla.setModel(self.model)		#Reescribe la tabla con el dato que reciba
-    return b
+    
     

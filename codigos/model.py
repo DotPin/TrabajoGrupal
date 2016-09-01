@@ -42,10 +42,12 @@ def obt_tb_ctgrs():
 
 def refresco(texto):
   con = conectar()
-  c = concursor()
+  c = con.cursor()
+  print [texto]
+  query = "select * from noticias where texto like '%"+texto+"%';"
   #a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
-  query = """select * from noticias where texto like "%?%"""
-  respuesta = c.execute(query, (texto))
+  #select * from noticias where texto like "%ver%";'
+  respuesta = c.execute(query)
   b = respuesta.fetchall()
   con.close()
   return b
