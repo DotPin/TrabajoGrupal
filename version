@@ -1,4 +1,4 @@
-Version del Programa realizando:	1.1 
+Version del Programa realizando:	1.1
 *creado portal administrador
 *creando portal usuario
 *cambiando permisos a los archivos para uso multiusuario colaborador
@@ -10,4 +10,6 @@ Version del Programa realizando:	1.1
 *-> Pasamos a la v1.2
 
 *Empezando versión 1.2:
+Version del Programa Realizado:		1.2
 *intentando refresco de grilla a través de la herramienta QlineEdit(), objeto filtro
+*Terminado con refreso de grilla a través de herramienta QlineEdit(), filtro funcionando
