@@ -25,25 +25,40 @@ class Vtn2 (QtGui.QMainWindow):
     from MPortales import Vtn1
     self.init = Vtn1()
     self.init.iniciar()
-        
+  
+   #def load_data(self):
+    #datos = db_model.obt_tb_ntcs()
+    #ctg = db_model.obt_tb_ctgrs()
+    #self.model = QtGui.QStandardItemModel(self.msrt.tabla)
+    #for e in datos:
+      #for b in ctg:
+	#if b["id_categoria"] == e["fk_id_categoria"]:
+	  #h = b["nombre"]
+	  #print h
+      #a = (e["fecha"]) + "\n"
+      #a = a + (e["titulo"]) + "\n"
+      #a = a + (e["resumen"]) + "\n"
+      #a = a + (e["texto"]) + "\n"
+      #a = a + (e["publicada"]) + "\n"
+      #a = a + (e["autor"]) + "\n"
+      #a = a + h + "\n"
+      #self.item = QtGui.QStandardItem(a)
+      #self.model.appendRow(self.item)
+      #a = ""
+    #self.msrt.tabla.setModel(self.model)
+  
+  
   def load_data(self):
-    datos = db_model.obt_tb_ntcs()
-    ctg = db_model.obt_tb_ctgrs()
+    datos = db_model.mostrar_ntcs():
     self.model = QtGui.QStandardItemModel(self.msrt.tabla)
     for e in datos:
-      for b in ctg:
-	if b["id_categoria"] == e["fk_id_categoria"]:
-	  h = b["nombre"]
-	  print h
       a = (e["fecha"]) + "\n"
       a = a + (e["titulo"]) + "\n"
       a = a + (e["resumen"]) + "\n"
       a = a + (e["texto"]) + "\n"
       a = a + (e["publicada"]) + "\n"
       a = a + (e["autor"]) + "\n"
-      a = a + h + "\n"
-      #a = a + str(e["fk_id_categoria"])
-      #self.msrt.label.setText(a)
+      a = a + (e["nombre"])
       self.item = QtGui.QStandardItem(a)
       self.model.appendRow(self.item)
       a = ""
