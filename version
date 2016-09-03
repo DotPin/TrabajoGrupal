@@ -13,3 +13,4 @@ Version del Programa realizando:	1.1
 Version del Programa Realizado:		1.2
 *intentando refresco de grilla a través de la herramienta QlineEdit(), objeto filtro
 *Terminado con refreso de grilla a través de herramienta QlineEdit(), filtro funcionando
+*actualizado los metodos de load y refresco
