@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>ui_portal</string>
+   <string>Portal</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="label">

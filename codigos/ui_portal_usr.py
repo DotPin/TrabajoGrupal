@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_portal_usr.ui'
 #
-# Created: Sat Sep  3 01:12:31 2016
+# Created: Sat Sep  3 17:39:12 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,12 +33,12 @@ class Ui_mostrador(object):
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pbkda = QtGui.QRadioButton(self.horizontalLayoutWidget)
-        self.pbkda.setObjectName("pbkda")
-        self.horizontalLayout.addWidget(self.pbkda)
-        self.n_pbkda = QtGui.QRadioButton(self.horizontalLayoutWidget)
-        self.n_pbkda.setObjectName("n_pbkda")
-        self.horizontalLayout.addWidget(self.n_pbkda)
+        self.si = QtGui.QCheckBox(self.horizontalLayoutWidget)
+        self.si.setObjectName("si")
+        self.horizontalLayout.addWidget(self.si)
+        self.no = QtGui.QCheckBox(self.horizontalLayoutWidget)
+        self.no.setObjectName("no")
+        self.horizontalLayout.addWidget(self.no)
         self.label_2 = QtGui.QLabel(mostrador)
         self.label_2.setGeometry(QtCore.QRect(40, 110, 181, 41))
         self.label_2.setFrameShape(QtGui.QFrame.Box)
@@ -60,11 +60,11 @@ class Ui_mostrador(object):
         QtCore.QMetaObject.connectSlotsByName(mostrador)
 
     def retranslateUi(self, mostrador):
-        mostrador.setWindowTitle(QtGui.QApplication.translate("mostrador", "ui_portal_usr", None, QtGui.QApplication.UnicodeUTF8))
+        mostrador.setWindowTitle(QtGui.QApplication.translate("mostrador", "Listado Noticias", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("mostrador", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic; color:#20197f;\">Bienvenido al Revisor de Noticias!</span></p><p align=\"center\"><span style=\" font-size:12pt; font-style:italic;\">Filtre según contenido o publicaciones</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox.setTitle(QtGui.QApplication.translate("mostrador", "Estado Noticias", None, QtGui.QApplication.UnicodeUTF8))
-        self.pbkda.setText(QtGui.QApplication.translate("mostrador", "Publicada", None, QtGui.QApplication.UnicodeUTF8))
-        self.n_pbkda.setText(QtGui.QApplication.translate("mostrador", "No Publicada", None, QtGui.QApplication.UnicodeUTF8))
+        self.si.setText(QtGui.QApplication.translate("mostrador", "Publicada", None, QtGui.QApplication.UnicodeUTF8))
+        self.no.setText(QtGui.QApplication.translate("mostrador", "No Publicada", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("mostrador", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-style:italic;\">Filtro por Contenido</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.volver.setText(QtGui.QApplication.translate("mostrador", "Volver", None, QtGui.QApplication.UnicodeUTF8))
 

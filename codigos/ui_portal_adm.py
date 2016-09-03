@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_portal_adm.ui'
 #
-# Created: Mon Aug 29 16:09:18 2016
+# Created: Sat Sep  3 13:08:28 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -90,7 +90,7 @@ class Ui_portal_adm(object):
         QtCore.QMetaObject.connectSlotsByName(portal_adm)
 
     def retranslateUi(self, portal_adm):
-        portal_adm.setWindowTitle(QtGui.QApplication.translate("portal_adm", "ui_portal", None, QtGui.QApplication.UnicodeUTF8))
+        portal_adm.setWindowTitle(QtGui.QApplication.translate("portal_adm", "Portal", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("portal_adm", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-style:italic;\">Escoja la categoría</span></p><p align=\"center\"><span style=\" font-size:12pt; font-style:italic;\">que desea ejecutar:</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.mstr.setText(QtGui.QApplication.translate("portal_adm", "Mostrar", None, QtGui.QApplication.UnicodeUTF8))
         self.a_ctgr.setText(QtGui.QApplication.translate("portal_adm", "Categoria", None, QtGui.QApplication.UnicodeUTF8))

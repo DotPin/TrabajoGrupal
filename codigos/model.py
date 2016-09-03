@@ -22,26 +22,6 @@ def mostrar_ntcs():
   con.close()
   return b
 
-
-#obtengo todos los datos de noticias
-def obt_tb_ntcs():
-  con = conectar()
-  c = con.cursor()
-  query = "select titulo from noticias;"
-  rsp = c.execute("select * from noticias;")
-  a = rsp.fetchall()
-  con.close()
-  return a
-
-#obtengo todos los datos de categorias
-def obt_tb_ctgrs():
-  con = conectar()
-  c = con.cursor()
-  rsp = c.execute("select * from categoria;")
-  b = rsp.fetchall()
-  con.close()
-  return b
-
 def refresco(texto):
   con = conectar()
   c = con.cursor()
@@ -53,6 +33,25 @@ def refresco(texto):
   b = respuesta.fetchall()
   con.close()
   return b
+
+def filtro(texto):
+  con = conectar()
+  c = con.cursor()
+  query = "select b.fecha as 'Fecha', b.titulo as 'Titulo', b.resumen as 'Resumen',b.texto, b.publicada as 'Publicada', b.autor as 'Autor',a.nombre as 'Categoria' from categoria a left join noticias b where id_categoria = fk_id_categoria and  b.publicada = '"+texto+"';"
+  respuesta = c.execute(query)
+  b = respuesta.fetchall()
+  con.close()
+  return b
+
+#obtengo todos los datos de categorias
+def obt_tb_ctgrs():
+  con = conectar()
+  c = con.cursor()
+  rsp = c.execute("select * from categoria;")
+  b = rsp.fetchall()
+  con.close()
+  return b
+
 
 
 
