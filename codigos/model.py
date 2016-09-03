@@ -18,8 +18,9 @@ def mostrar_ntcs():
   con = conectar()
   c = con.cursor()
   rsp = c.execute("select b.fecha as 'Fecha', a.nombre as 'Categoria', b.titulo as 'Titulo', b.resumen as 'Resumen',b.texto, b.publicada as 'Publicada', b.autor as 'Autor',a.nombre as 'Categoria' from categoria a left join noticias b where id_categoria = fk_id_categoria;")
+  b = rsp.fetchall()
   con.close()
-  return rsp.fetchall()
+  return b
 
 
 #obtengo todos los datos de noticias
@@ -45,7 +46,7 @@ def refresco(texto):
   con = conectar()
   c = con.cursor()
   print [texto]
-  query = "select * from noticias where texto like '%"+texto+"%';"
+  query = "select b.fecha as 'Fecha', b.titulo as 'Titulo', b.resumen as 'Resumen',b.texto, b.publicada as 'Publicada', b.autor as 'Autor',a.nombre as 'Categoria' from categoria a left join noticias b where id_categoria = fk_id_categoria and texto like '%"+texto+"%';"
   #a = "%"+texto+"%" #esta parte del codigo debe cambiar dependiendo si la interfaz se puede acceder de manera continua o no
   #select * from noticias where texto like "%ver%";'
   respuesta = c.execute(query)

@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*- 
 
 import sys
 from PySide import QtCore, QtGui
@@ -26,30 +27,8 @@ class Vtn2 (QtGui.QMainWindow):
     self.init = Vtn1()
     self.init.iniciar()
   
-   #def load_data(self):
-    #datos = db_model.obt_tb_ntcs()
-    #ctg = db_model.obt_tb_ctgrs()
-    #self.model = QtGui.QStandardItemModel(self.msrt.tabla)
-    #for e in datos:
-      #for b in ctg:
-	#if b["id_categoria"] == e["fk_id_categoria"]:
-	  #h = b["nombre"]
-	  #print h
-      #a = (e["fecha"]) + "\n"
-      #a = a + (e["titulo"]) + "\n"
-      #a = a + (e["resumen"]) + "\n"
-      #a = a + (e["texto"]) + "\n"
-      #a = a + (e["publicada"]) + "\n"
-      #a = a + (e["autor"]) + "\n"
-      #a = a + h + "\n"
-      #self.item = QtGui.QStandardItem(a)
-      #self.model.appendRow(self.item)
-      #a = ""
-    #self.msrt.tabla.setModel(self.model)
-  
-  
   def load_data(self):
-    datos = db_model.mostrar_ntcs():
+    datos = db_model.mostrar_ntcs()
     self.model = QtGui.QStandardItemModel(self.msrt.tabla)
     for e in datos:
       a = (e["fecha"]) + "\n"
@@ -58,7 +37,7 @@ class Vtn2 (QtGui.QMainWindow):
       a = a + (e["texto"]) + "\n"
       a = a + (e["publicada"]) + "\n"
       a = a + (e["autor"]) + "\n"
-      a = a + (e["nombre"])
+      a = a + (e["Categoria"])
       self.item = QtGui.QStandardItem(a)
       self.model.appendRow(self.item)
       a = ""
@@ -66,21 +45,18 @@ class Vtn2 (QtGui.QMainWindow):
     
   def cambio_tbl(self, text):
     fltr = db_model.refresco(text) #llamo tabla noticias filtrada  de la consulta a la bss y la guardo en fltr
-    ctg = db_model.obt_tb_ctgrs()#llamo la tabla de categorias completa
     self.model = QtGui.QStandardItemModel(self.msrt.tabla)#creo objeto modelo de tabla
-    for q in fltr:# 		Comparo...
-      for b in ctg:
-	if b["id_categoria"] == q["fk_id_categoria"]:# if tabla noticias igual tabla categoria:
-	  a = (q["fecha"]) + "\n"
-	  a = a + (q["titulo"]) + "\n"
-	  a = a + (q["resumen"]) + "\n"
-	  a = a + (q["texto"]) + "\n"
-	  a = a + (q["publicada"]) + "\n"
-	  a = a + (q["autor"]) + "\n"
-	  a = a + (b["nombre"]) + "\n"
-	  self.item = QtGui.QStandardItem(a)# crea la cadena de texto
-	  self.model.appendRow(self.item)
-	  a = ""
-    self.msrt.tabla.setModel(self.model)		#Reescribe la tabla con el dato que reciba
+    for e in fltr:
+      a = (e["fecha"]) + "\n"
+      a = a + (e["titulo"]) + "\n"
+      a = a + (e["resumen"]) + "\n"
+      a = a + (e["texto"]) + "\n"
+      a = a + (e["publicada"]) + "\n"
+      a = a + (e["autor"]) + "\n"
+      a = a + (e["Categoria"])
+      self.item = QtGui.QStandardItem(a)
+      self.model.appendRow(self.item)
+      a = ""
+    self.msrt.tabla.setModel(self.model)	#Reescribe la tabla con el dato que reciba
     
     

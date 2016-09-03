@@ -143,6 +143,9 @@
      <height>261</height>
     </rect>
    </property>
+   <property name="locale">
+    <locale language="Spanish" country="Chile"/>
+   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

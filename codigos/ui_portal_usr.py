@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_portal_usr.ui'
 #
-# Created: Tue Aug 30 01:37:28 2016
+# Created: Sat Sep  3 01:12:31 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -53,6 +53,7 @@ class Ui_mostrador(object):
         self.volver.setObjectName("volver")
         self.tabla = QtGui.QListView(mostrador)
         self.tabla.setGeometry(QtCore.QRect(10, 190, 641, 261))
+        self.tabla.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Chile))
         self.tabla.setObjectName("tabla")
 
         self.retranslateUi(mostrador)
