@@ -4,11 +4,11 @@
 import sys
 from PySide import QtCore, QtGui
 import model as db_nt
-from e_cat import Ui_e_cat
+from ed_cat import Ui_ed_cat
 
-class Frm3(QtGui.QMainWindow):
+class Frm4(QtGui.QMainWindow):
   def iniciar(self):
-    self.dog = Ui_e_cat()
+    self.dog = Ui_ed_cat()
     self.dog.setupUi(self)
     self.load_grid()
     self.botones()
@@ -30,9 +30,11 @@ class Frm3(QtGui.QMainWindow):
     index = self.dog.tabla.currentIndex()
     texto = data.index(index.row(), 0, QtCore.QModelIndex()).data()
     #print "Index seleccionada: "+str(index.row()+1)
-    if texto != "Otro":
-      dt = db_nt.obt_id_ctgrs(texto)	#obtengo la ID categoría a eliminar
-      dt2 = db_nt.obt_id_ctgrs('Otro')	#busco la id de la categoria Otro
+    texto2 = self.dog.nuevo.text()
+    if (texto != "Otro") and (texto2 != "Otro") and (texto2 != "otro"):		#revisa si está seleccionando la categoria Otro
+      db_nt.edito_ctgr(texto,texto2)
+      dt = db_nt.obt_id_ctgrs(texto)	#obtengo la ID categoría a actualizar
+      dt2 = db_nt.obt_id_ctgrs(texto2) 	#Obtengo la id de la categoria
       for a in dt:
 	id1 = a["id"]
       for b in dt2:
@@ -40,10 +42,8 @@ class Frm3(QtGui.QMainWindow):
       print id1
       print id2
       db_nt.actualizar(id1,id2)	#cambio fk_id_categoria de las noticias a Otro
-      db_nt.elimina_ctgr(texto)		#Elimina categoria seleccionada
-      self.load_grid()
     else:
-      self.errorMessageDialog.setText(u"Categoría Otro no es eliminable")
+      self.errorMessageDialog.setText(u"Categoría Otro no es Editable")
       self.errorMessageDialog.exec_()
       
   def load_grid(self):

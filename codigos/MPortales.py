@@ -8,6 +8,7 @@ from crtl_form import Frm
 from crtl_form_ca import Frm2
 from crtl_mstr import Vtn2
 from crtl_ecat import Frm3
+from crtl_edcat import Frm4
 from login import Main
 
 class Vtn1 (QtGui.QMainWindow):
@@ -23,11 +24,17 @@ class Vtn1 (QtGui.QMainWindow):
     self.ui3.a_ctgr.clicked.connect(self.ad_ctgr) 
     #self.ui2.a_ntc.clicked.connect( self."metodo")
     #self.ui2.ed_ntc.clicked.connect( self."metodo")
-    #self.ui2.ed_ctgr.clicked.connect( self."metodo") agregar metodo
+    self.ui3.ed_ctgr.clicked.connect( self.edi_ctgr) 
     #self.ui2.el_ntc.clicked.connect( self."metodo")
     self.ui3.el_ctgr.clicked.connect(self.del_ctgr) 
     self.ui3.volver.clicked.connect(self.volver)
 
+  def edi_ctgr(self):
+    self.close()
+    b = Frm4()
+    b.iniciar()
+    b.iniciar.show()
+  
   def del_ctgr(self):
     self.close()
     b = Frm3()

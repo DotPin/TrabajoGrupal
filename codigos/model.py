@@ -117,8 +117,18 @@ def elimina_ctgr(texto):
   con.commit()
   con.close()
 
+
+def edito_ctgr(texto1,texto2):
+  con = conectar()
+  c = con.cursor()
+  if (texto1 != "Otro") and (texto2 != "Otro"):
+    query = "update categoria set nombre = '"+texto2+"' where nombre = '"+texto1+"';"
+    c.execute(query)
+  con.commit()
+  con.close()
 #***********************querys de prueba
 #select * from categoria;
+#update categoria set nombre = 'Salud' where nombre = 'Piscina';
 #update noticias set fk_id_categoria = 1 where fk_id_categoria = 11;
 #"select b.fecha as 'Fecha', a.nombre as 'Categoria', b.titulo as 'Titulo', b.resumen as 'Resumen',b.texto, b.publicada as 'Publicada', b.autor as 'Autor',a.nombre as 'Categoria' from categoria a left join noticias b where id_categoria = fk_id_categoria;"
 #select * from noticias;
