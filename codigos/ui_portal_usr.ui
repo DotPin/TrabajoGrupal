@@ -10,6 +10,18 @@
     <height>462</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>659</width>
+    <height>462</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>659</width>
+    <height>462</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Listado Noticias</string>
   </property>

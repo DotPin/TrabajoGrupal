@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_portal_usr.ui'
 #
-# Created: Sat Sep  3 17:39:12 2016
+# Created: Mon Sep  5 17:50:58 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,6 +13,8 @@ class Ui_mostrador(object):
     def setupUi(self, mostrador):
         mostrador.setObjectName("mostrador")
         mostrador.resize(659, 462)
+        mostrador.setMinimumSize(QtCore.QSize(659, 462))
+        mostrador.setMaximumSize(QtCore.QSize(659, 462))
         self.label = QtGui.QLabel(mostrador)
         self.label.setGeometry(QtCore.QRect(10, 10, 641, 81))
         self.label.setFrameShape(QtGui.QFrame.Box)

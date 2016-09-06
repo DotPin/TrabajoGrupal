@@ -22,7 +22,7 @@ class Vtn2 (QtGui.QMainWindow):
     self.msrt.filtro.textChanged.connect(self.cambio_tbl)
     self.msrt.si.stateChanged.connect(self.publicacion_s)
     self.msrt.no.stateChanged.connect(self.publicacion_n)
-    
+
   def atras(self):
     self.close()
     from MPortales import Vtn1
@@ -30,6 +30,7 @@ class Vtn2 (QtGui.QMainWindow):
     self.init.iniciar()
   
   def publicacion_s(self):	#filtro por checkbox publicada
+    self.msrt.label.setText(unicode("Otròñe"))
     if self.msrt.si.checkState():
       text = 'SI'
       dts = db_model.filtro(text)
@@ -56,6 +57,8 @@ class Vtn2 (QtGui.QMainWindow):
     fltr = db_model.refresco(text)		#Guardo datos filtrados
     self.imprimir_en_tabla(fltr)	#llamo a la funcion de grabado a tabla con parámetro de refresco
 
+
+
   def imprimir_en_tabla(self, datos):	#metodo gènerico para impresion de las tablas generadas por querys distintas
     self.model = QtGui.QStandardItemModel(self.msrt.tabla)
     for e in datos:		#llenado de datos en tabla
@@ -66,6 +69,7 @@ class Vtn2 (QtGui.QMainWindow):
       a = a + (e["publicada"]) + "\n"
       a = a + (e["autor"]) + "\n"
       a = a + (e["Categoria"])
+      print a
       self.item = QtGui.QStandardItem(a)
       self.model.appendRow(self.item)
       a = ""
