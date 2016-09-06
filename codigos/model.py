@@ -90,9 +90,19 @@ def elimina_ntcs(id_ntcs):
   con.close()
   return vdd
 
+def crea_ctgr(texto):
+  vdd = True
+  con = conectar()
+  c = con.cursor()
+  query = "insert into categoria (nombre) values (?) ;"
+  c.execute(query, texto)
+  con.commit()
+  
 
 #***********************querys de prueba
-
+#select * from categoria;
+#delete from categoria where id_categoria = 11;
+#insert into categoria (nombre) values ("Relogion");
 #INSERT INTO noticias (titulo, fecha, resumen, texto, publicada, autor, fk_id_categoria) VALUES ("lol", 1988-05-25, "paf", "SI", "FUU", "CACA", 3); 
 
 #update noticias set titulo= "narf", fecha='1988-05-25', resumen="cafi", texto="tula", publicada="NO", autor="PATA", fk_id_categoria="3" where id_noticia = 23;
