@@ -57,8 +57,6 @@ class Vtn2 (QtGui.QMainWindow):
     fltr = db_model.refresco(text)		#Guardo datos filtrados
     self.imprimir_en_tabla(fltr)	#llamo a la funcion de grabado a tabla con parámetro de refresco
 
-
-
   def imprimir_en_tabla(self, datos):	#metodo gènerico para impresion de las tablas generadas por querys distintas
     self.model = QtGui.QStandardItemModel(self.msrt.tabla)
     for e in datos:		#llenado de datos en tabla
@@ -69,7 +67,6 @@ class Vtn2 (QtGui.QMainWindow):
       a = a + (e["publicada"]) + "\n"
       a = a + (e["autor"]) + "\n"
       a = a + (e["Categoria"])
-      print a
       self.item = QtGui.QStandardItem(a)
       self.model.appendRow(self.item)
       a = ""

@@ -7,6 +7,7 @@ from ui_portal_adm import Ui_portal_adm
 from crtl_form import Frm
 from crtl_form_ca import Frm2
 from crtl_mstr import Vtn2
+from crtl_ecat import Frm3
 from login import Main
 
 class Vtn1 (QtGui.QMainWindow):
@@ -24,9 +25,14 @@ class Vtn1 (QtGui.QMainWindow):
     #self.ui2.ed_ntc.clicked.connect( self."metodo")
     #self.ui2.ed_ctgr.clicked.connect( self."metodo") agregar metodo
     #self.ui2.el_ntc.clicked.connect( self."metodo")
-    #self.ui2.el_ctgr.clicked.connect( self."metodo") agregar metodo
+    self.ui3.el_ctgr.clicked.connect(self.del_ctgr) 
     self.ui3.volver.clicked.connect(self.volver)
 
+  def del_ctgr(self):
+    self.close()
+    b = Frm3()
+    b.iniciar()
+    b.iniciar.show()
   
   def ad_ctgr(self):
     self.close()

@@ -52,7 +52,15 @@ def obt_tb_ctgrs():
   con.close()
   return b
 
-
+def obt_id_ctgrs(texto):
+  con = conectar()
+  c = con.cursor()
+  query = "select id_categoria as 'id' from categoria where nombre = '"+texto+"';"
+  rsp = c.execute(query)
+  b = rsp.fetchall()
+  con.close()
+  return b
+#select id_categoria from categoria where nombre = "Politica";
 
 
 #**************************Modificación, eliminación y creación de datos
@@ -64,6 +72,7 @@ def crea_ntcs(titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria):
     query = """INSERT INTO noticias (titulo, fecha, resumen, texto, publicada, autor, fk_id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?)"""
     c.execute(query, (titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria))
     con.commit()
+    con.close()		#revisar si se puede hacer esta acción
 
 
 #para editar las noticas las categorías deben existir para la noticia, y validar la fk_id_categoria con id_noticia
@@ -73,6 +82,7 @@ def edita_ntcs(titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria):
   query = "update noticias set titulo = ?, fecha= ?, resumen= ?, texto= ?, publicada= ?, autor= ?, fk_id_categoria= ?, where id_noticia = ?"
   c.execute(query, (titulo,fecha,resumen,texto,publicada,autor,fk_id_categoria))
   con.commit()
+  con.close()
 
 
 #confirma si la eliminación fue exitosa o no, dependiendo si la noticia existe o no con excepcion
@@ -90,24 +100,34 @@ def elimina_ntcs(id_ntcs):
   con.close()
   return vdd
 
-def crea_ctgr(texto):
-  vdd = True
+def actualizar(ide1, ide2):
   con = conectar()
   c = con.cursor()
-  query = "insert into categoria (nombre) values (?) ;"
-  c.execute(query, texto)
+  query = "update noticias set fk_id_categoria = ? where fk_id_categoria = ?"
+  c.execute(query, (ide2, ide1))
   con.commit()
-  
+  con.close()
+
+def elimina_ctgr(texto):
+  con = conectar()
+  c = con.cursor()
+  if texto != "Otro":
+    query = "delete from categoria where nombre = '"+texto+"';"
+    c.execute(query)
+  con.commit()
+  con.close()
 
 #***********************querys de prueba
 #select * from categoria;
-#delete from categoria where id_categoria = 11;
-#insert into categoria (nombre) values ("Relogion");
+#update noticias set fk_id_categoria = 1 where fk_id_categoria = 11;
+#"select b.fecha as 'Fecha', a.nombre as 'Categoria', b.titulo as 'Titulo', b.resumen as 'Resumen',b.texto, b.publicada as 'Publicada', b.autor as 'Autor',a.nombre as 'Categoria' from categoria a left join noticias b where id_categoria = fk_id_categoria;"
+#select * from noticias;
 #INSERT INTO noticias (titulo, fecha, resumen, texto, publicada, autor, fk_id_categoria) VALUES ("lol", 1988-05-25, "paf", "SI", "FUU", "CACA", 3); 
+
 
 #update noticias set titulo= "narf", fecha='1988-05-25', resumen="cafi", texto="tula", publicada="NO", autor="PATA", fk_id_categoria="3" where id_noticia = 23;
 
-#select * from noticias;
+
  
 #consulta con like
 #select * from noticias where texto like "%ta%";
